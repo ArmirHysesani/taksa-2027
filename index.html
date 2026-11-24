@@ -217,5 +217,59 @@ byId('example').addEventListener('click', () => {
 });
 updateFields();
 </script>
+  <style>
+.instagram-follow {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #384462;
+}
+.instagram-follow strong {
+  color: #fff;
+  font-size: 1.1rem;
+}
+.instagram-follow p {
+  margin: 8px 0 16px;
+  font-size: 0.95rem;
+}
+.instagram-follow a {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #833ab4, #b51260);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+</style>
+
+<script>
+(() => {
+  const form = document.getElementById('form');
+  const amount = document.getElementById('amount');
+  const card = document.createElement('div');
+
+  card.className = 'instagram-follow';
+  card.hidden = true;
+  card.innerHTML = `
+    <strong>Të ndihmoi ky kalkulator? 🙌</strong>
+    <p>Ndiq Hello AI Studio për mjete të tjera falas,
+    ide praktike me AI dhe këshilla për sigurinë online.</p>
+    <a href="https://www.instagram.com/hello_ai_studio/"
+       target="_blank" rel="noopener noreferrer">
+      Ndiq në Instagram ↗
+    </a>
+  `;
+
+  document.querySelector('.result').appendChild(card);
+
+  form.addEventListener('submit', () => {
+    card.hidden = !/\d/.test(amount.textContent);
+  });
+
+  form.addEventListener('input', () => {
+    card.hidden = true;
+  });
+})();
+</script>
 </body>
 </html>
