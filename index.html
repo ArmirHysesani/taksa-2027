@@ -262,13 +262,20 @@ updateFields();
 
   document.querySelector('.result').appendChild(card);
 
-  form.addEventListener('submit', () => {
-    card.hidden = !/\d/.test(amount.textContent);
-  });
+  function shfaqInstagram() {
+    card.hidden = false;
+  }
 
-  form.addEventListener('input', () => {
-    card.hidden = true;
-  });
+  // Kur klikojnë “Llogarit taksën”
+  form.querySelector('button[type="submit"]')
+    .addEventListener('click', shfaqInstagram);
+
+  // Kur klikojnë “Provo një shembull”
+  document.getElementById('example')
+    .addEventListener('click', shfaqInstagram);
+
+  // Edhe kur llogaritjen e nisin me Enter
+  form.addEventListener('submit', shfaqInstagram);
 })();
 </script>
 </body>
